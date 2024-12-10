@@ -2,7 +2,7 @@ import type { CallbackManagerForChainRun } from '@langchain/core/callbacks/manag
 import { HumanMessage } from '@langchain/core/messages';
 import type { BasePromptValueInterface } from '@langchain/core/prompt_values';
 import { Runnable, type RunnableConfig } from '@langchain/core/runnables';
-import { PangeaConfig, AIGuardService } from 'pangea-node-sdk';
+import { AIGuardService, PangeaConfig } from 'pangea-node-sdk';
 
 export class PangeaAiGuardRunnable<
   RunInput extends BasePromptValueInterface,
