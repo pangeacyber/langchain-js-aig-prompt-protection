@@ -4,13 +4,13 @@ import { Runnable, type RunnableConfig } from '@langchain/core/runnables';
 import { PangeaConfig, PromptGuardService } from 'pangea-node-sdk';
 
 export class MaliciousPromptError extends Error {
-  detector: string;
+  analyzer: string;
 
-  constructor(detector: string) {
+  constructor(analyzer: string) {
     super('One or more messages were detected as malicious.');
     // biome-ignore lint/nursery/noSecrets: false positive.
     this.name = 'MaliciousPromptError';
-    this.detector = detector;
+    this.analyzer = analyzer;
   }
 }
 
@@ -68,7 +68,7 @@ export class PangeaPromptGuard<
     });
     const response = await this.client.guard({ messages });
     if (response.result?.detected) {
-      throw new MaliciousPromptError(response.result.detector!);
+      throw new MaliciousPromptError(response.result.analyzer!);
     }
 
     return input;

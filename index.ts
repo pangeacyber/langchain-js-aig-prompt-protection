@@ -60,7 +60,7 @@ const main = defineCommand({
     } catch (error) {
       if (error instanceof MaliciousPromptError) {
         consola.error(
-          `The prompt was detected as malicious (detector: ${error.detector}).`
+          `The prompt was detected as malicious (detector: ${error.analyzer}).`
         );
       } else {
         throw error;
