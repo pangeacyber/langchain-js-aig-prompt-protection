@@ -8,7 +8,6 @@ export class MaliciousPromptError extends Error {
 
   constructor(analyzer: string) {
     super('One or more messages were detected as malicious.');
-    // biome-ignore lint/nursery/noSecrets: false positive.
     this.name = 'MaliciousPromptError';
     this.analyzer = analyzer;
   }
@@ -18,7 +17,6 @@ export class PangeaPromptGuard<
   RunInput extends BasePromptValueInterface,
 > extends Runnable<RunInput, RunInput> {
   static lc_name() {
-    // biome-ignore lint/nursery/noSecrets: false positive.
     return 'PangeaPromptGuard';
   }
 
